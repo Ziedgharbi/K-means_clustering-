@@ -59,7 +59,6 @@ for k in k_range:
 # tracer le score en fonction du nombre de cluster 
 plt.plot(k_range,inertia_m)
 
-
 #######################################################################################
 #### exemple 2 : 3 feature
 x,y = make_blobs(n_samples= 200, n_features=3)
