@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 
 from sklearn.cluster import KMeans
 from sklearn.datasets import make_blobs
@@ -10,14 +8,12 @@ import random
 random.seed(1000)
 #### exemple 1 : 2 feature
 
-
 x,y = make_blobs(n_samples= 200, n_features=2)
 x.shape
 
 plt.scatter(x[:,0], x[:,1])
-
-
 x_train, x_test, y_train, y_test = train_test_split( x,y, test_size=0.2 ) 
+
 
 # on fixe le nombre de cluster à 2
 model= KMeans(n_clusters=2, n_init= 10, max_iter= 300,init='k-means++' )
@@ -64,11 +60,8 @@ plt.plot(k_range,inertia_m)
 x,y = make_blobs(n_samples= 200, n_features=3)
 x.shape
 
-
-
 ax = plt.axes(projection='3d')
 ax.scatter3D(x[:,0], x[:,1], x[:,2], cmap='Greens');
-
 
 x_train, x_test, y_train, y_test = train_test_split( x,y, test_size=0.2 ) 
 
@@ -83,11 +76,9 @@ ax = plt.axes(projection='3d')
 ax.scatter3D(x_test[:,0], x_test[:,1],x_test[:,2], c= model.predict(x_test))
 ax.scatter3D(centroid[:,0], centroid[:,1],centroid[:,2], c='r')
 
-
 # le score 
 inertia=model.inertia_    ## ou bien 
 inertia= - model.score(x_train)    
-
 
 # on réexcute le modèle pour différent nombre de cluster
 
@@ -111,7 +102,7 @@ for k in k_range:
     ax.scatter3D(x_test[:,0], x_test[:,1],x_test[:,2], c= model.predict(x_test))
     ax.scatter3D(centroid[:,0], centroid[:,1],centroid[:,2], c='r')
 
-    
+
 # elbow methode basée sur le coude :  fonction de cout determine le nombre de clusters
 # tracer le score en fonction du nombre de cluster 
 plt.plot(k_range,inertia_m)
