@@ -14,7 +14,6 @@ x.shape
 plt.scatter(x[:,0], x[:,1])
 x_train, x_test, y_train, y_test = train_test_split( x,y, test_size=0.2 ) 
 
-
 # on fixe le nombre de cluster à 2
 model= KMeans(n_clusters=2, n_init= 10, max_iter= 300,init='k-means++' )
 model.fit(x_train)
@@ -101,7 +100,6 @@ for k in k_range:
     ax.tick_params(left=False,bottom=False, labelleft=False, labelbottom=False)
     ax.scatter3D(x_test[:,0], x_test[:,1],x_test[:,2], c= model.predict(x_test))
     ax.scatter3D(centroid[:,0], centroid[:,1],centroid[:,2], c='r')
-
 
 # elbow methode basée sur le coude :  fonction de cout determine le nombre de clusters
 # tracer le score en fonction du nombre de cluster 
