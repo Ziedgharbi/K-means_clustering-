@@ -34,7 +34,6 @@ inertia_m = []
 k_range= range(1,11,1)
 len(k_range)
 
-
 for k in k_range:
     model= KMeans(n_clusters=k )
     model.fit(x_train)
